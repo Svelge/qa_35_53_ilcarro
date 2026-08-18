@@ -10,3 +10,6 @@ def test_login_success(driver):
     login_page.fill_email(VALID_EMAIL)
     login_page.fill_password(VALID_PASSWORD)
     login_page.submit_login()
+    assert login_page.login_success_text() == "You are logged in success"
+    login_page.close_window()
+    assert login_page.is_logged() is True
